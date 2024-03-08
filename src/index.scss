@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --col-body: #3E4E48;
+
+    @media screen and (max-width: 720px) {
+        font-size: 12px;
+    }
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overscroll-behavior: none;
+
+    font-family: "Atkinson Hyperlegible", sans-serif;
+}
+
+h1 {
+    margin: 0;
+}
+
+button {
+    border: 2px solid currentcolor;
+    background: none;
+    font-size: 1em;
+    font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+}
