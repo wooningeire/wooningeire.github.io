@@ -16,7 +16,7 @@ import {canScrollPage} from "./store";
 <style lang="scss">
 main {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 
     background: linear-gradient(135deg, #fcfeff, #d9dde0);
 }
@@ -31,7 +31,7 @@ main {
     color: var(--col-body);
     
     &:not(.can-scroll) {
-        height: 100%;
+        height: 100vh;
     }
 }
 </style>
