@@ -1,16 +1,19 @@
 <script lang="ts">
 export let text: string;
-export let icon: string;
+export let icon: string = "";
 export let url: string;
+export let newTab: boolean = false;
 </script>
 
 <a
     href={url}
-    target="_blank"
+    target={newTab ? "_blank" : ""}
 >
     <button>
+        {#if icon}
         <img src={icon}
             alt={`${text} icon`} />
+        {/if}
         {text}
     </button>
 </a>
@@ -26,6 +29,5 @@ button {
     display: flex;
     align-items: center;
     gap: 0.625rem;
-    padding: 0.625rem;
 }
 </style>
