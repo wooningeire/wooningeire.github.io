@@ -8,6 +8,7 @@ export let newTab: boolean = false;
 <a
     href={url}
     target={newTab ? "_blank" : ""}
+    tabindex="-1"
 >
     <button>
         {#if icon}

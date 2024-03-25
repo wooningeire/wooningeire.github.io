@@ -1,4 +1,7 @@
-<a href="../">
+<a
+    href="../"
+    tabindex="-1"
+>
     <button>
         ◀ Back
     </button>
