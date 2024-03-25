@@ -1,9 +1,14 @@
 <script lang="ts">
 import "@/index.scss";
+
+import {canScrollPage} from "./store";
 </script>
 
 <main>
-    <div class="content-container">
+    <div
+        class="content-container"
+        class:can-scroll={$canScrollPage}
+    >
         <slot />
     </div>
 </main>
@@ -12,18 +17,21 @@ import "@/index.scss";
 main {
     width: 100vw;
     height: 100vh;
+
+    background: linear-gradient(135deg, #fcfeff, #d9dde0);
 }
 
 .content-container {
-    height: 100%;
     position: relative;
     padding: 16vh 18.75vw;
 
     @media screen and (max-width: 720px) {
         padding: 8rem 2rem;
     }
-
-    background: linear-gradient(135deg, #fcfeff, #d9dde0);
     color: var(--col-body);
+    
+    &:not(.can-scroll) {
+        height: 100%;
+    }
 }
 </style>

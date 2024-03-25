@@ -1,5 +1,8 @@
 <script lang="ts">
+import { onMount } from "svelte";
+
 import LinkButton from "./LinkButton.svelte";
+
 import icosahedraSrc from "./icosahedra.png";
 
 import gitlabIconSrc from "$/assets/social-icons/gitlab.svg";
@@ -7,6 +10,12 @@ import githubIconSrc from "$/assets/social-icons/github.svg";
 import linkedinIconSrc from "$/assets/social-icons/linkedin.svg";
 
 import config from "$/data/lander.json";
+
+import { canScrollPage } from "./store";
+
+onMount(() => {
+    $canScrollPage = false;
+});
 </script>
 
 <section class="body-container">
@@ -23,6 +32,7 @@ import config from "$/data/lander.json";
             url="/work/"
         />
         {/if}
+        <!--
         <LinkButton
             text="Web"
             url="/web/"
@@ -31,6 +41,7 @@ import config from "$/data/lander.json";
             text="Illustration"
             url="/art/"
         />
+        -->
     </button-rack>
 
     <button-rack>
