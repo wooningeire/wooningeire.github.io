@@ -26,23 +26,28 @@ export let url: string;
 work-gallery-entry {
     display: flex;
     flex-flow: column;
-    gap: 0.625rem;
     width: 20ch;
     font-size: 1.5rem;
+    background: currentcolor;
 
     > image-container {
-        padding: 0.625em;
-        outline: 2px dashed currentcolor;
-
         > img {
             width: 100%;
-            box-shadow: 0 4px 32px -16px currentcolor;
             aspect-ratio: 2560/1600;
         }
+    }
+
+    > entry-title {
+        color: #fff;
+        font-weight: 700;
     }
 }
 
 a {
     color: inherit;
+}
+
+button {
+    padding: 0;
 }
 </style>
