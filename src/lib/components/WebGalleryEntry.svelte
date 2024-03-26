@@ -8,6 +8,7 @@ export let url: string;
 
 <a
     href={url}
+    rel="external"
     target="_blank"
     tabindex="-1"
 >
