@@ -36,7 +36,7 @@ work-gallery-entry {
 
         > img {
             width: 100%;
-            box-shadow: 0 4px 32px -8px currentcolor;
+            box-shadow: 0 4px 32px -16px currentcolor;
             aspect-ratio: 2560/1600;
         }
     }

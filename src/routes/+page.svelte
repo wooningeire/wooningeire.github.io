@@ -8,8 +8,9 @@ import icosahedraSrc from "./icosahedra.png";
 import gitlabIconSrc from "$/assets/social-icons/gitlab.svg";
 import githubIconSrc from "$/assets/social-icons/github.svg";
 import linkedinIconSrc from "$/assets/social-icons/linkedin.svg";
+import kofiIconSrc from "$/assets/social-icons/kofi.svg";
 
-import config from "$/data/lander.json";
+import config from "@/lib/data/lander";
 
 import { canScrollPage } from "./store";
 
@@ -69,6 +70,14 @@ onMount(() => {
             newTab={true}
         />
         {/if}
+        {#if config.socialUrls.kofi}
+        <LinkButton
+            text="Ko-fi"
+            icon={kofiIconSrc}
+            url={config.socialUrls.kofi}
+            newTab={true}
+        />
+        {/if}
     </button-rack>
 </section>
 
@@ -107,7 +116,7 @@ headline- {
 button-rack {
     font-size: 2rem;
     display: flex;
-    flex-flow: wrap;
+    flex-wrap: wrap;
     align-items: stretch;
     gap: 1.25rem;
 }
