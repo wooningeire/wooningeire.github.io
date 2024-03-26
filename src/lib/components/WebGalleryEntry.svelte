@@ -1,4 +1,6 @@
 <script lang="ts">
+import { marked } from "marked";
+
 export let preview: string;
 export let title: string;
 export let url: string;
@@ -10,23 +12,24 @@ export let url: string;
     tabindex="-1"
 >
     <button>
-        <work-gallery-entry>
+        <web-gallery-entry>
             <image-container>
                 <img
                     src={preview}
                     alt={title}
                 />
             </image-container>
-            <entry-title>{title}</entry-title>
-        </work-gallery-entry>
+            <entry-title>{marked.parseInline(title)}</entry-title>
+        </web-gallery-entry>
     </button>
 </a>
 
 <style lang="scss">
-work-gallery-entry {
+web-gallery-entry {
     display: flex;
     flex-flow: column;
     width: 20ch;
+    height: 100%;
     font-size: 1.5rem;
     background: currentcolor;
 

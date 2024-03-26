@@ -33,16 +33,15 @@ onMount(() => {
             url="/work/"
         />
         {/if}
-        <!--
         <LinkButton
             text="Web"
             url="/web/"
         />
         <LinkButton
             text="Illustration"
-            url="/art/"
+            url="https://ko-fi.com/vaiezzell/gallery"
+            newTab={true}
         />
-        -->
     </button-rack>
 
     <button-rack>

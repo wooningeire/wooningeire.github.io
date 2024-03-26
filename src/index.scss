@@ -36,3 +36,11 @@ button {
 a > button {
     height: 100%;
 }
+
+
+gallery- {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+}
