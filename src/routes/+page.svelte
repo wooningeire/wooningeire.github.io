@@ -10,7 +10,7 @@ import githubIconSrc from "$/assets/social-icons/github.svg";
 import linkedinIconSrc from "$/assets/social-icons/linkedin.svg";
 import kofiIconSrc from "$/assets/social-icons/kofi.svg";
 
-import config from "@/lib/data/lander";
+import config from "$/data/lander";
 
 import { canScrollPage } from "./store";
 
