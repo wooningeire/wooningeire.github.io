@@ -22,31 +22,31 @@ onMount(() => {
     <WebGalleryEntry
         preview={r4itumPreviewSrc}
         title="ℝ⁴itum"
-        url="/4d-webgl-test"
+        url="/4d-webgl-test/"
     />
     <WebGalleryEntry
         preview={colorspacesPreviewSrc}
         title="Color space explorer"
-        url="/colorspaces"
+        url="/colorspaces/"
     />
     <WebGalleryEntry
         preview={condgen3PreviewSrc}
         title="Conditional generator"
-        url="/condgen3"
+        url="/condgen3/"
     />
     <WebGalleryEntry
         preview={soloyyinProtoPreviewSrc}
         title="Soloyyin"
-        url="/soloyyin.proto"
+        url="/soloyyin.proto/"
     />
     <WebGalleryEntry
         preview={familyEmojiBuilderPreviewSrc}
         title="Family emoji builder"
-        url="/family-emoji-builder"
+        url="/family-emoji-builder/"
     />
     <WebGalleryEntry
         preview={r4itum2020PreviewSrc}
         title="ℝ⁴itum 2020"
-        url="/r4itum"
+        url="/r4itum/"
     />
 </gallery->
