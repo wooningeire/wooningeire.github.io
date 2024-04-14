@@ -4,12 +4,12 @@ import { canScrollPage } from "../store";
 import BackButton from "../BackButton.svelte";
 import WebGalleryEntry from "$/components/WebGalleryEntry.svelte";
 
-import r4itumPreviewSrc from "$/assets/web-screenshots/r4itum.png";
-import colorspacesPreviewSrc from "$/assets/web-screenshots/colorspaces.png";
-import condgen3PreviewSrc from "$/assets/web-screenshots/condgen3.png";
-import soloyyinProtoPreviewSrc from "$/assets/web-screenshots/soloyyin.proto.png";
-import familyEmojiBuilderPreviewSrc from "$/assets/web-screenshots/family-emoji-builder.png";
-import r4itum2020PreviewSrc from "$/assets/web-screenshots/r4itum.2020.png";
+import r4itumPreviewSrc from "$/assets/web-screenshots/r4itum.png?as=screenshot";
+import colorspacesPreviewSrc from "$/assets/web-screenshots/colorspaces.png?as=screenshot";
+import condgen3PreviewSrc from "$/assets/web-screenshots/condgen3.png?as=screenshot";
+import soloyyinProtoPreviewSrc from "$/assets/web-screenshots/soloyyin.proto.png?as=screenshot";
+import familyEmojiBuilderPreviewSrc from "$/assets/web-screenshots/family-emoji-builder.png?as=screenshot";
+import r4itum2020PreviewSrc from "$/assets/web-screenshots/r4itum.2020.png?as=screenshot";
 
 onMount(() => {
     $canScrollPage = true;

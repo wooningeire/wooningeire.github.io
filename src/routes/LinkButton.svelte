@@ -12,8 +12,10 @@ export let newTab: boolean = false;
 >
     <button>
         {#if icon}
-        <img src={icon}
-            alt={`${text} icon`} />
+        <img
+            src={icon}
+            alt={`${text} icon`}
+        />
         {/if}
         {text}
     </button>
