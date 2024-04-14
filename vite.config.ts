@@ -8,6 +8,8 @@ export default defineConfig({
 		imagetools({
 			profiles: {
 				screenshot: new URLSearchParams('w=540;1280;2560&format=webp;jpg;png'),
+				overlay: new URLSearchParams('format=webp;png'),
+				icon: new URLSearchParams('w=48&format=svg'),
 			},
 		}),
 	],

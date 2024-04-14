@@ -3,7 +3,7 @@ import { onMount } from "svelte";
 
 import LinkButton from "./LinkButton.svelte";
 
-import icosahedraSrc from "./icosahedra.png";
+import icosahedraSrc from "./icosahedra.png?w=270;540;1080&as=overlay";
 
 import gitlabIconSrc from "$/assets/social-icons/gitlab.svg";
 import githubIconSrc from "$/assets/social-icons/github.svg";
@@ -13,10 +13,14 @@ import kofiIconSrc from "$/assets/social-icons/kofi.svg";
 import config from "$/data/lander";
 
 import { canScrollPage } from "./store";
+import { FxReveal } from "@zerodevx/svelte-img";
 
 onMount(() => {
     $canScrollPage = false;
 });
+
+let imgIcosahedraRef: FxReveal;
+let imgIcosahedraLoaded = false;
 </script>
 
 <section class="body-container">
@@ -81,11 +85,17 @@ onMount(() => {
 </section>
 
 <image-positioner>
-    <img
-        src={icosahedraSrc}
+    <div
         class="icosahedra"
-        alt="Three glass icosahedra"
-    />
+        class:loaded={imgIcosahedraLoaded}
+    >
+        <FxReveal
+            src={icosahedraSrc}
+            alt="Three glass icosahedra"
+            bind:imgIcosahedraRef
+            on:load={() => imgIcosahedraLoaded = true}
+        />
+    </div>
 </image-positioner>
 
 
@@ -137,6 +147,16 @@ image-positioner {
         bottom: 50%;
         transform: translateY(25%);
         width: 38rem;
+
+        --reveal-filter: none;
+        --reveal-transition: opacity .2s ease-in-out;
+
+        &.loaded :global(.lqip) {
+            opacity: 0;
+        }
+        :global(.lqip) {
+            transition: opacity .2s ease-in-out;
+        }
     }
 }
 </style>

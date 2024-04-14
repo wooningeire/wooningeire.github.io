@@ -33,7 +33,7 @@ const unblur = (node: HTMLElement, {delay=0, duration=300, easing=cubicOut}: {de
     tabindex="-1"
 >
     <button>
-        <web-gallery-entry>
+        <web-gallery-entry class="clickable">
             <image-container>
                 <FxReveal
                     src={preview}
@@ -66,17 +66,27 @@ web-gallery-entry {
             grid-area: 1 / 1;
         }
 
-        > :global(picture),
+        :global(.lqip) {
+            z-index: 0;
+        }
+
+        :global(picture) {
+            position: relative;
+            z-index: 1;
+    
+            --reveal-transform: scale(0.8);
+            --reveal-transition:
+                opacity 0.2s ease-in-out,
+                transform 0.5s cubic-bezier(0,1.62,.49,1);
+        }
+
+        :global(picture),
         :global(img) {
             width: 100%;
             height: auto;
             aspect-ratio: 2560/1600;
-    
-            --reveal-transform: scale(0.8);
-            --reveal-transition:
-                filter 0.5s ease,
-                transform 0.5s cubic-bezier(0,1.62,.49,1);
         }
+
 
         > blur-filter {
             backdrop-filter: blur(8px);

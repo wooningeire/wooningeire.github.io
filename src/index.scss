@@ -1,3 +1,5 @@
+@import "mixins.scss";
+
 * {
     box-sizing: border-box;
 }
@@ -31,7 +33,10 @@ button {
     font-family: inherit;
     color: inherit;
     cursor: pointer;
+
+    @include clickable;
 }
+
 
 a > button {
     height: 100%;
