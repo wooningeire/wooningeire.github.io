@@ -1,4 +1,4 @@
-@mixin clickable {
+@mixin clickable($scale-up-size: 1.05) {
     transition:
         filter .1s ease-in-out,
         transform .3s cubic-bezier(.32,1.94,.57,1),
@@ -7,7 +7,7 @@
     &:hover,
     &:focus {
         filter: brightness(1.125);
-        transform: scale(1.05);
+        transform: scale($scale-up-size);
         box-shadow: 0 6px 24px -12px currentcolor;
     }
 

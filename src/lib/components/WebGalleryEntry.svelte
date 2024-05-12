@@ -6,6 +6,9 @@ import type { Transition } from "svelte/types/compiler/interfaces";
 import type { EasingFunction } from "svelte/transition";
 import { cubicOut } from "svelte/easing";
 
+import infoSrc from "$/assets/icons/info.svg";
+import openSrc from "$/assets/icons/open.svg";
+
 export let preview: string;
 export let title: string;
 export let url: string;
@@ -22,7 +25,7 @@ const unblur = (node: HTMLElement, {delay=0, duration=300, easing=cubicOut}: {de
         duration,
         easing,
         css: (t: number) => `backdrop-filter: blur(${8 * t}px)`,
-    }
+    };
 };
 </script>
 
@@ -47,17 +50,38 @@ const unblur = (node: HTMLElement, {delay=0, duration=300, easing=cubicOut}: {de
                 {/if}
             </image-container>
             <entry-title>{marked.parseInline(title)}</entry-title>
+            <entry-controls>
+                <button>
+                    <img
+                        src={infoSrc}
+                        alt={`Info icon`}
+                    />
+                </button>
+
+                <!--
+                <button>
+                    <img
+                        src={openSrc}
+                        alt={`Open icon`}
+                    />
+                </button>
+                -->
+            </entry-controls>
         </web-gallery-entry>
     </button>
 </a>
 
 <style lang="scss">
+@import "@/mixins.scss";
+
 web-gallery-entry {
     display: flex;
     flex-flow: column;
-    width: 20ch;
+    justify-content: space-between;
+    gap: 2px;
+    width: 24ch;
     height: 100%;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     background: currentcolor;
 
     > image-container {
@@ -98,6 +122,32 @@ web-gallery-entry {
     > entry-title {
         color: #fff;
         font-weight: 700;
+    }
+
+    > entry-controls {
+        display: flex;
+        gap: 0.5ch;
+
+        > button {
+            width: 2.5ch;
+            border: 0;
+            display: flex;
+
+            background: var(--col-body);
+            padding: 3.5px;
+
+            @include clickable(1.25);
+            
+            &:hover,
+            &:focus,
+            &:active {
+                filter: unset;
+            }
+
+            > * {
+                width: 100%;
+            }
+        }
     }
 }
 

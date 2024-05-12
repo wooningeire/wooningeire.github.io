@@ -1,7 +1,7 @@
 <script lang="ts">
 import "@/index.scss";
 
-import {canScrollPage} from "./store";
+import {canScrollPage} from "@/store";
 </script>
 
 <main>

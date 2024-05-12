@@ -12,7 +12,7 @@ import kofiIconSrc from "$/assets/social-icons/kofi.svg";
 
 import config from "$/data/lander";
 
-import { canScrollPage } from "./store";
+import { canScrollPage } from "@/store";
 import { FxReveal } from "@zerodevx/svelte-img";
 
 onMount(() => {
@@ -38,13 +38,12 @@ let imgIcosahedraLoaded = false;
         />
         {/if}
         <LinkButton
-            text="Web"
-            url="/web/"
+            text="Software & web"
+            url="/software/"
         />
         <LinkButton
-            text="Illustration"
-            url="https://ko-fi.com/vaiezzell/gallery"
-            newTab={true}
+            text="Art & illustration"
+            url="/art/"
         />
     </button-rack>
 
