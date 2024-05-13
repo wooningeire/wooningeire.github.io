@@ -26,8 +26,7 @@ const filenameToPreviewUrl = (() => {
 
 {#each data.entries as entry (entry.id)}
     <WebGalleryEntry
-        preview={filenameToPreviewUrl.get(entry.previewUrlLocal)}
-        title={entry.title}
-        url={entry.url}
+        {entry}
+        previewUrl={filenameToPreviewUrl.get(entry.assetsPreviewUrlLocal)}
     />
 {/each}

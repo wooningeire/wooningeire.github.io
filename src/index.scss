@@ -1,4 +1,5 @@
-@import "mixins.scss";
+@import "./mixins.scss";
+@import "./constants.scss";
 
 * {
     box-sizing: border-box;
@@ -7,7 +8,7 @@
 :root {
     --col-body: #3E4E48;
 
-    @media screen and (max-width: 720px) {
+    @media screen and (max-width: $small-layout-max-width) {
         font-size: 12px;
     }
 }
@@ -40,12 +41,4 @@ button {
 
 a > button {
     height: 100%;
-}
-
-
-gallery- {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 3rem;
 }

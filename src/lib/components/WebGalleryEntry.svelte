@@ -1,80 +1,66 @@
 <script lang="ts">
 import { marked } from "marked";
-import {FxReveal} from "@zerodevx/svelte-img";
-import { onMount } from "svelte";
-import type { Transition } from "svelte/types/compiler/interfaces";
-import type { EasingFunction } from "svelte/transition";
-import { cubicOut } from "svelte/easing";
+import { getContext, onMount } from "svelte";
+import type { EntryDetailsContext } from "@/routes/(galleries)/+layout.svelte";
+import type { EntryJson } from "@/store";
 
 import infoSrc from "$/assets/icons/info.svg";
-import openSrc from "$/assets/icons/open.svg";
+import ImageContainer from "./ImageContainer.svelte";
 
-export let preview: string;
-export let title: string;
-export let url: string;
+export let entry: EntryJson;
+export let previewUrl: string;
 
-let imgRef: FxReveal;
-let imgLoaded = false;
-onMount(() => {
-    imgLoaded = imgRef?.complete ?? false;
-});
-
-const unblur = (node: HTMLElement, {delay=0, duration=300, easing=cubicOut}: {delay?: number, duration?: number, easing?: EasingFunction}={}) => {
-    return {
-        delay,
-        duration,
-        easing,
-        css: (t: number) => `backdrop-filter: blur(${8 * t}px)`,
-    };
-};
+const entryDetailsContext: EntryDetailsContext = getContext("entryDetails");
+const select = () => entryDetailsContext.selectEntry(entry, previewUrl);
 </script>
 
-<a
-    href={url}
-    rel="external"
-    target="_blank"
-    tabindex="-1"
->
-    <button>
-        <web-gallery-entry class="clickable">
-            <image-container>
-                <FxReveal
-                    src={preview}
-                    alt={title}
-                    bind:imgRef
-                    on:load={() => imgLoaded = true}
+<gallery-entry-container>
+    <a
+        href={entry.url}
+        rel="external"
+        target="_blank"
+        tabindex="-1"
+    >
+        <button>
+            <gallery-entry class="clickable">
+                <ImageContainer
+                    src={previewUrl}
+                    alt={entry.title}
                 />
+                <entry-title>{marked.parseInline(entry.title)}</entry-title>
+            </gallery-entry>
+        </button>
+    </a>
 
-                {#if !imgLoaded}
-                    <blur-filter out:unblur />
-                {/if}
-            </image-container>
-            <entry-title>{marked.parseInline(title)}</entry-title>
-            <entry-controls>
-                <button>
-                    <img
-                        src={infoSrc}
-                        alt={`Info icon`}
-                    />
-                </button>
+    <entry-controls>
+        <button on:click={select}>
+            <img
+                src={infoSrc}
+                alt={`Info icon`}
+            />
+        </button>
 
-                <!--
-                <button>
-                    <img
-                        src={openSrc}
-                        alt={`Open icon`}
-                    />
-                </button>
-                -->
-            </entry-controls>
-        </web-gallery-entry>
-    </button>
-</a>
+        <!--
+        <button>
+            <img
+                src={openSrc}
+                alt={`Open icon`}
+            />
+        </button>
+        -->
+    </entry-controls>
+</gallery-entry-container>
 
 <style lang="scss">
 @import "@/mixins.scss";
 
-web-gallery-entry {
+gallery-entry-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+gallery-entry {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
@@ -107,7 +93,7 @@ web-gallery-entry {
         :global(picture),
         :global(img) {
             width: 100%;
-            height: auto;
+            height: 100%;
             aspect-ratio: 2560/1600;
         }
 
@@ -123,30 +109,27 @@ web-gallery-entry {
         color: #fff;
         font-weight: 700;
     }
+}
 
-    > entry-controls {
+entry-controls {
+    display: flex;
+    gap: 0.5ch;
+
+    > button {
+        width: 2ch;
+        border: 0;
         display: flex;
-        gap: 0.5ch;
 
-        > button {
-            width: 2.5ch;
-            border: 0;
-            display: flex;
+        @include clickable(1.25);
+        
+        &:hover,
+        &:focus,
+        &:active {
+            filter: unset;
+        }
 
-            background: var(--col-body);
-            padding: 3.5px;
-
-            @include clickable(1.25);
-            
-            &:hover,
-            &:focus,
-            &:active {
-                filter: unset;
-            }
-
-            > * {
-                width: 100%;
-            }
+        > * {
+            width: 100%;
         }
     }
 }

@@ -13,20 +13,28 @@ import {canScrollPage} from "@/store";
     </div>
 </main>
 
-<style lang="scss">
+<style lang="scss">   
+@import "@/constants.scss";
+
 main {
-    width: 100vw;
+    min-width: min-content;
     min-height: 100vh;
 
     background: linear-gradient(135deg, #fcfeff, #d9dde0);
 }
 
 .content-container {
+    min-width: min-content;
     position: relative;
     padding: 16vh 18.75vw;
 
-    @media screen and (max-width: 720px) {
-        padding: 8rem 2rem;
+    @media screen and (max-height: $small-padding-max-height) {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+    @media screen and (max-width: $small-layout-max-width) {
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
     color: var(--col-body);
     
