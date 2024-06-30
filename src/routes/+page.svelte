@@ -42,11 +42,13 @@ let imgIcosahedraLoaded = false;
             text="Web"
             url="/web/"
         />
+        <!--
         <LinkButton
             text="Illustration"
-            url="https://ko-fi.com/vaiezzell/gallery"
+            url="/art/"
             newTab={true}
         />
+        -->
     </button-rack>
 
     <button-rack>
@@ -84,7 +86,7 @@ let imgIcosahedraLoaded = false;
         {/if}
         {#if config.socialUrls.artfight}
         <LinkButton
-            text="ArtFight"
+            text="Art Fight"
             icon={artfightIconSrc}
             url={config.socialUrls.artfight}
             newTab={true}
