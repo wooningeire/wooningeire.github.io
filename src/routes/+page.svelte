@@ -9,6 +9,7 @@ import gitlabIconSrc from "$/assets/social-icons/gitlab.svg";
 import githubIconSrc from "$/assets/social-icons/github.svg";
 import linkedinIconSrc from "$/assets/social-icons/linkedin.svg";
 import kofiIconSrc from "$/assets/social-icons/kofi.svg";
+import artfightIconSrc from "$/assets/social-icons/artfight.svg";
 
 import config from "$/data/lander";
 
@@ -78,6 +79,14 @@ let imgIcosahedraLoaded = false;
             text="Ko-fi"
             icon={kofiIconSrc}
             url={config.socialUrls.kofi}
+            newTab={true}
+        />
+        {/if}
+        {#if config.socialUrls.artfight}
+        <LinkButton
+            text="ArtFight"
+            icon={artfightIconSrc}
+            url={config.socialUrls.artfight}
             newTab={true}
         />
         {/if}
